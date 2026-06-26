@@ -25,7 +25,8 @@ export async function register(req, res){
     await sendEmail({
         to : email,
         subject : "welcome to nexa",
-        html : `<p> hi ${username} <h1>Thanks for registration at nexa<h1> <p>`
+        html : `<p>Hi, ${username},<p>
+               <p>Thanks for registration at nexa<p>`
     })
 
     
