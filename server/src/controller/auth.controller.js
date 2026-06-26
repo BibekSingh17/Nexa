@@ -26,7 +26,7 @@ export async function register(req, res){
         to : email,
         subject : "welcome to nexa",
         html : `<p>Hi, ${username},<p>
-               <p>Thanks for registration at nexa<p>`
+               <p>Thanks for registration at <strong>nexa<strong><p>`
     })
 
     
