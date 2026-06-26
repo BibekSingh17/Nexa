@@ -1,6 +1,6 @@
 import userModel from '../model/user.model.js'
 import jwt from 'jsonwebtoken'
-
+import { sendEmail } from '../service/mail.service.js'
 
 export async function register(req, res){
 
@@ -21,5 +21,12 @@ export async function register(req, res){
 
     
     const user = await userModel.create({username, email, password})
+
+    await sendEmail({
+        to : email,
+        subject : "welcome to nexa",
+        html : `<p> hi ${username} <h1>Thanks for registration at nexa<h1> <p>`
+    })
+
     
 }
