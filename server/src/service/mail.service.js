@@ -39,6 +39,3 @@ export async function sendEmail({to, subject, html, text }){
     
 }
 
-export  {
-  sendEmail
-}
