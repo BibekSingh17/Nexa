@@ -21,6 +21,12 @@ authRouter.post('/register', registerValidator,register)
  */
 authRouter.post("/login", loginValidator, login)
 
+/**
+ * @route GET /api/auth/get-me
+ * @desc Get current logged in user's details
+ * @access Private
+ */
+authRouter.get('/get-me', authUser, getMe)
 
 /**
  * @route GET /api/auth/verify-email
