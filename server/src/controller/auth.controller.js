@@ -22,12 +22,28 @@ export async function register(req, res){
     
     const user = await userModel.create({username, email, password})
 
+    const emailVerificationToken = jwt.sign({
+        email : user.email
+    }, process.env.JWT_SECRET)
+
     await sendEmail({
         to : email,
         subject : "welcome to nexa",
         html : `<p>Hi, ${username},<p>
                <p>Thanks for registration at <strong>nexa<strong><p>`
     })
+
+    res.status(201)
+    .json({
+        message: "user registered successfully",
+        success : true,
+        user : {
+            id : user._id,
+            username : user.username,
+            email : user.email
+        }
+    })
+
 
     
 }
