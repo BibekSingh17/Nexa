@@ -1,31 +1,40 @@
 import { useState } from "react";
 
-/**
- * LoginForm
- * Standalone sign-in form panel — React + Tailwind CSS.
- * Requires the "Fraunces" and "Inter" fonts (Google Fonts) for the exact look.
- */
+
 export default function LoginForm() {
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
 
+
+
+
   const validate = () => {
+
     const next = {};
+
     if (!email.trim()) next.email = "Enter your email.";
+
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
       next.email = "That email doesn't look right.";
+
     if (!password) next.password = "Enter your password.";
     setErrors(next);
+
     return Object.keys(next).length === 0;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (!validate()) return;
+
     setSubmitting(true);
+
     setTimeout(() => setSubmitting(false), 1200);
   };
 
@@ -121,9 +130,6 @@ export default function LoginForm() {
         {/* SSO buttons */}
         <button className="w-full py-2.5 text-[13px] font-medium text-[#EDEFF2] bg-transparent border border-[#2A313D] rounded-md mb-2.5 hover:border-[#3A4250] transition-colors">
           Continue with Google
-        </button>
-        <button className="w-full py-2.5 text-[13px] font-medium text-[#EDEFF2] bg-transparent border border-[#2A313D] rounded-md hover:border-[#3A4250] transition-colors">
-          Continue with Apple
         </button>
 
         <p className="mt-7 text-center text-[13px] text-[#8C93A0]">
