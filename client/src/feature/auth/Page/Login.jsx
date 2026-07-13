@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useNavigate } from 'react-router'
 
 export default function LoginForm() {
 
@@ -10,7 +10,7 @@ export default function LoginForm() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
 
-
+  const navigate = useNavigate()
 
 
   const validate = () => {
@@ -134,8 +134,8 @@ export default function LoginForm() {
 
         <p className="mt-7 text-center text-[13px] text-[#8C93A0]">
           New to Northbound?{" "}
-          <a href="#" className="text-[#C9A227] hover:underline">
-            Create an account
+          <a onClick={() => navigate("/register")}  href="#" className="text-[#C9A227] hover:underline">
+            Create an account 
           </a>
         </p>
       </div>

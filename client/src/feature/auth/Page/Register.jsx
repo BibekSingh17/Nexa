@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { useNavigate } from "react-router";
 
 export default function Register() {
 
@@ -10,6 +10,7 @@ export default function Register() {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
 
+  const navigate = useNavigate()
 
   const validate = () => {
 
@@ -187,7 +188,7 @@ export default function Register() {
 
         <p className="mt-7 text-center text-[13px] text-[#8C93A0]">
           Already have an account?{" "}
-          <a href="#" className="text-[#C9A227] hover:underline">
+          <a onClick={() => navigate("/login")} href="#" className="text-[#C9A227] hover:underline">
             Sign in
           </a>
         </p>
